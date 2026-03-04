@@ -1,6 +1,9 @@
 package ArrayHW;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -14,8 +17,10 @@ public class Task6 {
     public List<Integer> task4Method(List<Integer> list1, List<Integer> list2){
         List<Integer> result = Stream
                 .concat(list1.stream(), list2.stream())
+                .sorted()
                 .collect(Collectors.toList());
         return result;
     }
 
+    
 }
