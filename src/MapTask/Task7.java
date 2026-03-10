@@ -9,15 +9,15 @@ import java.util.*;
 public class Task7 {
     public static Map<String, List<String>> task7Method(List<String> wordsList) {
         Map<String, List<String>> result = new HashMap<>();
-        for (int i = 0; i < wordsList.size(); i++) {
-            for (String word : wordsList) {
-                char[] chars = word.toCharArray();
-                Arrays.sort(chars);
-                String key = new String(chars);
 
-                result.computeIfAbsent(key, k -> new ArrayList<>()).add(word);
-            }
+        for (String word : wordsList) {
+            char[] chars = word.toCharArray();
+            Arrays.sort(chars);
+            String key = new String(chars);
+
+            result.computeIfAbsent(key, k -> new ArrayList<>()).add(word);
         }
+
         return result;
     }
 }

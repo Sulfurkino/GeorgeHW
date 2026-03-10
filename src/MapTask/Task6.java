@@ -8,23 +8,20 @@ import java.util.*;
 //**Условие:** Две строки — анаграммы, если состоят из одних символов (например, "listen" и "silent").
 // Проверь, являются ли две строки анаграммами.
 public class Task6 {
+
     public void task6Method(String word1, String word2) {
-        Set<Character> word1Arr = new HashSet<>();
-        Set<Character> word2Arr = new HashSet<>();
-        for (char c : word1.toCharArray()){
-            word1Arr.add(c);
-        }
-        for (char c : word2.toCharArray()){
-            word2Arr.add(c);
-        }
-        word1Arr.retainAll(word2Arr);
-        if (word1Arr.isEmpty()){
+
+        char[] arr1 = word1.toCharArray();
+        char[] arr2 = word2.toCharArray();
+
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+
+        if (Arrays.equals(arr1, arr2)) {
             System.out.println("это анаграмма");
-        }else {
+        } else {
             System.out.println("это не анаграмма");
         }
-
-
     }
 }
 
