@@ -1,7 +1,7 @@
-package Exception;
+package Exception.AgeTask;
 
 public class Person {
-    public void setAge(int age) throws InvalidAgeException{
+    public void setAge(int age) throws InvalidAgeException {
         if (age<0){
             throw new InvalidAgeException("возраст меньше 0");
         }

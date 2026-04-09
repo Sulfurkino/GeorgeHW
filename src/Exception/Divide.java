@@ -5,8 +5,11 @@ public class Divide {
 //    который делит два числа и выбрасывает `ArithmeticException` с понятным сообщением при делении на ноль.
 //    Оберни вызов в try-catch.
     static void safeDivide(double a, double b) throws ArithmeticException{
-        if(b ==0){
+        try {
+            double test = a/b;
+        } catch (ArithmeticException e){
             throw new ArithmeticException("нельзя делить на ноль");
         }
+
     }
 }

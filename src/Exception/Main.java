@@ -1,5 +1,7 @@
 package Exception;
 
+import Exception.AgeTask.Person;
+
 public class Main {
     public static void main(String[] args) {
         String pass1 = "pass1";
