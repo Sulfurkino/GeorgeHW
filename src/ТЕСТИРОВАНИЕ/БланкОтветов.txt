@@ -40,10 +40,22 @@
 1.30 — true(объекты имеют одно значение), false(это два разных объекта), Миша 25
 
 2.1
-Ошибка:
-Почему:
+Ошибка: при a !> b, код падает
+Почему: не указаны действия метода в случае не выполнения условия
 Исправленный код:
+public static int max(int a, int b) {
+    if (a > b || a == b) {
+        return a;
+    } else{
+        return b;
+    }
+}
 Как проверить:
+public static void main(String[] args) {
+    System.out.println(max(10, 5));
+    System.out.println(max(5, 10));
+    System.out.println(max(5, 5));
+}
 
 2.2
 Ошибка:
