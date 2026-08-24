@@ -46,9 +46,9 @@
 public static int max(int a, int b) {
     if (a > b || a == b) {
         return a;
-    } else{
-        return b;
     }
+    return b;
+
 }
 Как проверить:
 public static void main(String[] args) {
@@ -58,10 +58,22 @@ public static void main(String[] args) {
 }
 
 2.2
-Ошибка:
-Почему:
+Ошибка: NullPointerException
+Почему: метод не предусматривает в name значений кроме admin
 Исправленный код:
+public boolean isAdmin(String name) {
+    if("admin".equals(name) || "user".equals(name) || name.isEmpty() ){
+        return true;
+    }
+    return false;
+}
 Как проверить:
+public static void main(String[] args) {
+    System.out.println(isAdmin(""));
+    System.out.println(isAdmin("user"));
+    System.out.println(isAdmin(new String("admin")));
+    System.out.println(isAdmin("admin");
+}
 
 2.3
 Ошибка:
