@@ -1,0 +1,30 @@
+// 1. Напиши метод getField(Map<String, String> form, String key) -> Optional<String>
+//    Возвращает пустой Optional если:
+//    - ключ отсутствует в Map
+//    - значение null
+//    - значение пустое или состоит только из пробелов
+//    Иначе — Optional с trim()-нутым значением.
+Optional<String> getField(Map<String, String> form, String key);
+
+// 2. Напиши метод parseInteger(Map<String, String> form, String key) -> Optional<Integer>
+//    Использует getField внутри.
+//    Если значение есть, но не парсится в число — вернуть пустой Optional,
+//    НЕ бросать NumberFormatException наружу.
+Optional<Integer> parseInteger(Map<String, String> form, String key);
+
+// 3. Собери объект из формы. Если обязательные поля отсутствуют — верни пустой Optional.
+//    Необязательное поле salary — если не распарсилось, подставить 0.
+public record Employee(String name, String city, int age, int salary) {}
+
+Optional<Employee> buildEmployee(Map<String, String> form);
+
+// Тест:
+buildEmployee(Map.of("name","Алиса","city","Москва","age","30","salary","50000"))
+// → Optional[Employee{name=Алиса, city=Москва, age=30, salary=50000}]
+
+buildEmployee(Map.of("name","  ","city","Москва","age","30"))
+// → Optional.empty()  (name — только пробелы, обязательное поле)
+
+buildEmployee(Map.of("name","Алиса","city","Москва","age","30"))
+// → Optional[Employee{name=Алиса, city=Москва, age=30, salary=0}]
+// salary отсутствует — подставили дефолт
