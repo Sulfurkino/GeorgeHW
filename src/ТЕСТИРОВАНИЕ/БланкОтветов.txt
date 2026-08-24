@@ -111,10 +111,22 @@ public class Config {
 Как проверить: запустить в среде разработки и если он увидит поле то все ок
 
 2.6
-Ошибка:
-Почему:
+Ошибка: компиляции
+Почему: this всегда первой строкой в конструкторе
 Исправленный код:
-Как проверить:
+public class Task {
+    private int priority;
+
+    public Task(int priority) {
+        this.priority = priority;
+    }
+
+    public Task() {
+       this(1);
+       System.out.println("Создаю задачу по умолчанию");
+    }
+}
+Как проверить: при помощи запуска
 
 2.7
 Ошибка:
